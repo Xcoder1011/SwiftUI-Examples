@@ -25,11 +25,40 @@ struct ContentView2 : View {
     }
 }
 
+struct ContentView3 : View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 5.0) {
+            HStack(alignment: .center) {
+                Text("ShangHai museum")
+                    .font(.largeTitle)
+                    .fontWeight(.medium)
+                    .color(.blue)
+                    .multilineTextAlignment(.leading)
+              
+                Button(action: self.clickBtn) {
+                    Text("Nav")
+                }.foregroundColor(.red)
+            }
+            
+            Text("201 Renmin Avenue, Huangpu District, Shanghai")
+            .font(.subheadline)
+            .multilineTextAlignment(.leading)
+        }
+            
+    .padding([.top, .leading])
+       
+    }
+    
+    func clickBtn() -> Void {
+        print("clickBtn")
+    }
+}
+
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
         //ContentView()
-        ContentView2()
+        ContentView3()
     }
 }
 #endif
