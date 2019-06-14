@@ -27,26 +27,41 @@ struct ContentView2 : View {
 
 struct ContentView3 : View {
     var body: some View {
-        VStack(alignment: .leading, spacing: 5.0) {
-            HStack(alignment: .center) {
-                Text("ShangHai museum")
-                    .font(.largeTitle)
-                    .fontWeight(.medium)
-                    .color(.blue)
-                    .multilineTextAlignment(.leading)
-              
-                Button(action: self.clickBtn) {
-                    Text("Nav")
-                }.foregroundColor(.red)
-            }
+        
+        VStack {
             
-            Text("201 Renmin Avenue, Huangpu District, Shanghai")
-            .font(.subheadline)
-            .multilineTextAlignment(.leading)
-        }
+            MapView()
+            .edgesIgnoringSafeArea(.top) //允许地图内容扩展到屏幕的上边缘，配合Spacer()
+            .frame(height:400)
             
-    .padding([.top, .leading])
-       
+            CircleImage()
+                .offset( y: -40)
+                .padding(.bottom, -20)
+            
+            VStack(alignment: .leading, spacing: 5) {
+                
+                HStack(alignment: .center) {
+                    
+                    Text("ShangHai museum")
+                        .font(.largeTitle)
+                        .fontWeight(.medium)
+                        .color(.blue)
+                        .multilineTextAlignment(.leading)
+                    
+                        Button(action: self.clickBtn) {
+                            Text("Nav")
+                            }.foregroundColor(.red)
+                        }
+                
+                        Text("201 Renmin Avenue, Huangpu District, Shanghai")
+                            .font(.subheadline)
+                            .multilineTextAlignment(.leading)
+                
+                    }.padding([.leading])
+
+                 Spacer()
+            
+                }
     }
     
     func clickBtn() -> Void {

@@ -11,11 +11,11 @@ import SwiftUI
 struct CircleImage : View {
     var body: some View {
         Image("stmarylake")
-        .frame(width: 300, height: 300, alignment: .center)
+        .resizable()
+        .frame(width: 150, height: 150, alignment: .center)
         .clipShape(Circle())
         .overlay(Circle().stroke(Color.white, lineWidth: 4))
         .shadow(radius: 3)
-        .aspectRatio(contentMode: .fit)
     }
 }
 
